@@ -27,7 +27,8 @@ double[] GenerateArray(int length, int min, int max)
     Random random = new Random();
     for (int i = 0; i < length; i++)
     {
-        array[i] = random.Next(min, max) + Math.Round(random.NextDouble(), 2); //Округляет в основном до двух знаков, но иногда сбоит и пишет много знаков после зпт
+        // array[i] = random.Next(min, max) + Math.Round(random.NextDouble(), 2); //Округляет в основном до двух знаков, но иногда сбоит и пишет много знаков после зпт
+        array[i] = Math.Round(random.NextDouble() * (max - min) + min, 2); //этот метод округляет без косяков
     }
     return array;
 }
